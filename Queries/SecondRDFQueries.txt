@@ -1,0 +1,262 @@
+
+query1="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?id ?lbl  
+        WHERE{  
+            ?n1 node:label ?lbl.  
+            ?n1 ns1:name 'XU JIE'.  
+            OPTIONAL{?n1 ns1:node_id ?id.} 
+        }        
+    """
+
+query2="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?lbl ?country 
+        WHERE{ 
+            ?n node:label ?lbl. 
+            ?n ns1:name 'EL PORTADOR'. 
+            ?n ns1:countries ?country. 
+            FILTER(?country!='') 
+        }        
+        """
+
+query3="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT  DISTINCT ?lbl  
+        WHERE {   
+            ?n node:label ?lbl.  
+        }       
+    """
+
+query4="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT DISTINCT ?lbl   
+        WHERE{   
+            ?r1 edge:label ?lbl.  
+        }             
+        """
+
+query5="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?name ?lbl   
+        WHERE{      
+            ?n1 ns1:name 'ORION HOUSE SERVICES (HK) LIMITED'.  
+            ?n1 ns1:InRelationTo ?r1. 
+            ?r1 edge:label 'intermediary_of'. 
+            ?r1 ns1:PointsTo ?n2.  
+            ?n2 node:label ?lbl.  
+            OPTIONAL{?n2 ns1:name ?name.}  
+        }       
+    """
+
+query6="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?lbl1 ?name  ?link ?lbl2 
+        WHERE{   
+              { ?n1 node:label ?lbl1.  
+                ?n1 ns1:InRelationTo ?r1.  
+                ?r1 edge:label 'officer_of'.  
+                ?r1 ns1:PointsTo ?n2. 
+                ?n2 node:label ?lbl2. 
+                ?n1 ns1:name 'BEARER'. 
+                OPTIONAL { ?n2 ns1:name ?name. } 
+                OPTIONAL { ?r1 ns1:link ?link. }  
+            }  
+            UNION{  
+                ?n1 node:label ?lbl1.  
+                ?n1 ns1:InRelationTo ?r1.  
+                ?r1 edge:label 'officer_of'.  
+                ?r1 ns1:PointsTo ?n2.  
+                ?n2 node:label ?lbl2. 
+                ?n1 ns1:name 'The Bearer'.  
+                OPTIONAL { ?n2 ns1:name ?name. } 
+                OPTIONAL { ?r1 ns1:link ?link. }  
+          }  
+        }        
+       """
+
+query7="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?lbl1 ?link ?lbl2  ?entity_name 
+        WHERE{   
+            {?n1 node:label ?lbl1.  
+             ?n1 ns1:InRelationTo ?r1.  
+            ?r1 ns1:PointsTo ?n2.  
+            ?n2 node:label ?lbl2.  
+            ?r1 ns1:end_date '11-APR-2014'.  
+            ?n2 ns1:status 'Active'. 
+            ?n1 ns1:name 'THE BEARER'. 
+            OPTIONAL { ?r1 ns1:link ?link. }   
+            OPTIONAL { ?n2 ns1:name ?entity_name. }  
+            }  
+            UNION  
+            {  
+            ?n1 node:label ?lbl1.  
+            ?n1 ns1:InRelationTo ?r1.  
+            ?r1 ns1:PointsTo ?n2.  
+            ?n2 node:label ?lbl2.  
+            ?r1 ns1:end_date '29-DEC-2009'.  
+            ?n2 ns1:status 'Defaulted'. 
+            ?n1 ns1:name 'THE BEARER'. 
+            OPTIONAL { ?r1 ns1:link ?link. }  
+            OPTIONAL { ?n2 ns1:name ?entity_name. }  
+        }  
+        }       
+    """
+
+query8="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?lbl1 ?name ?link ?address  
+        WHERE{  
+            ?n1 node:label ?lbl1.  
+            ?n1 ns1:InRelationTo ?r1.  
+            ?r1 edge:label 'registered_address'.  
+            ?r1 ns1:PointsTo ?n3.  
+            OPTIONAL { ?n1 ns1:name ?name. }  
+            OPTIONAL { ?r1 ns1:link ?link. } 
+            OPTIONAL { ?n3 ns1:address ?address. } 
+        }       
+    """
+
+query9="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?lbl ?name ?link1 ?first_address ?link2 ?second_address     
+        WHERE {  
+              ?n1 node:label ?lbl.  
+              ?n1 ns1:InRelationTo ?r1.   
+              ?r1 edge:label 'registered_address'.   
+              ?r1 ns1:PointsTo ?n2.   
+              ?n1 ns1:InRelationTo ?r2.     
+              ?r2 edge:label 'registered_address'.   
+              ?r2 ns1:PointsTo ?n3.    
+              FILTER(?n2 != ?n3) 
+              OPTIONAL { ?n1 ns1:name ?name. }  
+              OPTIONAL { ?r1 ns1:link ?link1. }   
+              OPTIONAL { ?n2 ns1:address ?first_address. }   
+              OPTIONAL { ?r2 ns1:link ?link2. }   
+              OPTIONAL { ?n3 ns1:address ?second_address. }   
+        }         
+    """
+
+query10="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?link1 ?link2 ?address 
+        WHERE{ 
+            ?n1 node:label 'officer'. 
+            ?n1 ns1:InRelationTo ?r1. 
+            ?r1 edge:label 'registered_address'. 
+            ?r1 ns1:PointsTo ?n3. 
+            ?n2 node:label 'entity'. 
+            ?n2 ns1:InRelationTo ?r2. 
+            ?r2 edge:label 'registered_address'. 
+            ?r2 ns1:PointsTo ?n3. 
+            OPTIONAL { ?r1 ns1:link ?link1. } 
+            OPTIONAL { ?r2 ns1:link ?link2. } 
+            OPTIONAL { ?n3 ns1:address ?address. } 
+        }        
+    """
+
+query11="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?name ?valid ?sourceID  
+        WHERE{  
+             ?n1 node:label 'intermediary'. 
+            ?n2 node:label 'entity'. 
+            ?n3 node:label 'address'. 
+            ?n4 node:label 'officer'. 
+            ?n1 ns1:InRelationTo ?r1.  
+             ?r1 ns1:PointsTo ?n2.  
+             ?n2 ns1:InRelationTo ?r2.  
+             ?r2 ns1:PointsTo ?n3.  
+             ?n4 ns1:InRelationTo ?r3.  
+             ?r3 ns1:PointsTo ?n3.  
+             OPTIONAL { ?r1 ns1:valid_until ?valid. }  
+             OPTIONAL { ?r1 ns1:sourceID ?sourceID. }  
+             OPTIONAL { ?n1 ns1:name ?name.  }  
+        }       
+    """
+
+query12="""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX ns1: <http://example.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX node: <http://nodeLabel.org/>
+        PREFIX edge: <http://edgeLabel.org/>
+        SELECT ?officer_name ?link1 ?officer2_name ?link2 ?entity_name ?intermediary_name ?valid_until  ?e_name  
+        WHERE{ 
+                ?n1 node:label 'officer'. 
+                ?n1 ns1:InRelationTo ?r1. 
+                ?r1 edge:label 'officer_of'. 
+                ?r1 ns1:PointsTo ?n2. 
+                ?n2 node:label 'officer'. 
+                ?n2 ns1:InRelationTo ?r2. 
+                ?r2 edge:label 'registered_address'. 
+                ?r2 ns1:PointsTo ?n3. 
+                ?n3 node:label 'address'. 
+                ?n2 ns1:InRelationTo ?r3. 
+                ?r3 edge:label 'officer_of'. 
+                ?r3 ns1:PointsTo ?n4. 
+                ?n4 node:label 'entity'. 
+              ?n5 node:label 'intermediary'. 
+              ?n5 ns1:InRelationTo ?r4. 
+              ?r4 edge:label 'intermediary_of'. 
+              ?r4 ns1:PointsTo ?n4. 
+              ?n5 ns1:InRelationTo ?r5. 
+              ?r5 edge:label 'intermediary_of'. 
+              ?r5 ns1:PointsTo ?n6. 
+              ?n6 node:label 'entity'. 
+             OPTIONAL{?n1 ns1:name ?officer_name. }  
+             OPTIONAL{?r1 ns1:link ?link1.}  
+             OPTIONAL{?n2 ns1:name ?officer2_name.}  
+             OPTIONAL{?r3 ns1:link ?link2.}  
+             OPTIONAL{?n4 ns1:name ?entity_name.}  
+             OPTIONAL{?n5 ns1:name ?intermediary_name.}  
+           OPTIONAL{?r4 ns1:valid_until ?valid_until.}  
+             OPTIONAL{?n6 ns1:name ?e_name.}  
+            FILTER(?n6!=?n4) 
+        }       
+    """

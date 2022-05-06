@@ -1,0 +1,12 @@
+neo4j
+pandas
+numpy
+matplotlib
+rdflib
+py2neo
+jupyter 
+jupyterlab
+sparqlwrapper
+pymantic 
+pystardog
+ipython
