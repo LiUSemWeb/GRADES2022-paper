@@ -1,0 +1,73 @@
+  query1 = """MATCH (n1)  
+              WHERE n1.name='XU JIE'  
+              RETURN n1.node_id as id, head(labels(n1)) as lbl
+           """
+
+    query2="""MATCH(n) WHERE n.name='EL PORTADOR' and n.countries<>'' 
+              RETURN  HEAD(LABELS(n)) as lbl , n.countries as country 
+           """
+
+    
+    query3="""MATCH (n)  
+              RETURN DISTINCT HEAD(LABELS(n)) as lbl 
+           """
+
+
+    query4="""MATCH (n)-[r1]->(n1)  
+              RETURN DISTINCT TYPE(r1) as lbl
+           """
+
+
+    
+    query5="""MATCH (n1)-[r1:intermediary_of]->(n2)  
+              WHERE n1.name='ORION HOUSE SERVICES (HK) LIMITED' 
+              RETURN n2.name as name, HEAD(LABELS(n2)) as lbl 
+           """
+
+    
+
+    query6="""MATCH (n1)-[r1:officer_of]->(n2) 
+              WHERE n1.name='BEARER' 
+              RETURN HEAD(LABELS(n1)) as lbl1, 
+              n2.name as name, r1.link as link, HEAD(LABELS(n2)) as lbl2 
+              UNION ALL 
+              MATCH(n1)-[r1:officer_of]->(n2) 
+              WHERE n1.name='The Bearer' 
+	      RETURN HEAD(LABELS(n1)) as lbl1, 
+       	      n2.name as name, r1.link as link, HEAD(LABELS(n2)) as lbl2            
+           """
+
+    
+
+    query7="""MATCH (n1)-[r1]->(n2) WHERE r1.end_date='11-APR-2014' and n2.status='Active' and n1.name='THE BEARER' 
+              RETURN HEAD(LABELS(n1)) as lbl1, r1.link as link, HEAD(LABELS(n2)) as lbl2, n2.name as entity_name 
+              UNION ALL 
+              MATCH (n1)-[r1]->(n2) 
+              WHERE r1.end_date='29-DEC-2009' and n2.status='Defaulted' and n1.name='THE BEARER' 
+              RETURN HEAD(LABELS(n1)) as lbl1, r1.link as link, HEAD(LABELS(n2)) as lbl2, n2.name as entity_name
+           """
+
+    
+    query8="""MATCH (n1)-[r1:registered_address]->(n3)  
+              RETURN HEAD(LABELS(n1)) as lbl1, n1.name as name, r1.link as link, n3.address as address 
+           """
+
+
+    query9="""MATCH(n1)-[r1:registered_address]->(n2), 
+             (n1)-[r2:registered_address]->(n3) 
+              RETURN HEAD(LABELS(n1)) as lbl, n1.name as name, r1.link as link1, n2.address as first_address, r2.link as link2, n3.address as second_address 
+           """
+
+    query10="""MATCH(n1:officer)-[r1:registered_address]->(n3)<-[r2:registered_address]-(n2:entity) 
+               RETURN r1.link as link1, r2.link as link2, n3.address as address 
+            """
+
+
+    query11="""MATCH(n1:intermediary)-[r1]->(n2:entity)-[r2]->(n3:address)<-[r3]-(n4:officer) 
+               RETURN n1.name as name, r1.valid_until as valid, r1.sourceID as sourceID
+            """
+
+
+    query12="""MATCH (n1:officer)-[r1:officer_of]->(n2:officer)-[r2:registered_address]->(n3:address), (n2)-[r3:officer_of]->(n4:entity)<-[r4:intermediary_of]-(n5:intermediary)-[r5:intermediary_of]->(n6:entity)      
+               RETURN n1.name as officer_name, r1.link as link1, n2.name as officer2_name, r3.link as link2 , n4.name as entity_name, n5.name as intermediary_name, r4.valid_until as valid_until, n6.name as e_name               
+            """
