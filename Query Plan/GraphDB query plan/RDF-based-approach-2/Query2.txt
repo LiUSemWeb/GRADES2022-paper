@@ -1,0 +1,14 @@
+SELECT ?lbl ?country
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n ns1:name "EL PORTADOR" . # 	Collection size: 9325.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 9325.0
+    ?n node:label ?lbl . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 9325.0
+    ?n ns1:countries ?country . # 	Collection size: 462798.0	Predicate collection size: 462798.0	Unique subjects: 462798.0	Unique objects: 311.0	Current complexity: 9325.0
+    FILTER (?country != "")
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 9325.0
+  
+}

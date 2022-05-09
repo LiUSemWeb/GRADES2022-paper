@@ -1,0 +1,3 @@
+`─ Distinct [#4]
+   `─ Projection(?lbl) [#196K]
+      `─ Scan[POC](_, rdfs:label, ?lbl) [#196K]

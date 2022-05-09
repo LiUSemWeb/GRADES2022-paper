@@ -1,0 +1,3 @@
+`─ Distinct [#3]
+   `─ Projection(?lbl) [#236K]
+      `─ Scan[POC](_, edge:label, ?lbl) [#236K]

@@ -1,0 +1,120 @@
+SELECT ?officer_name ?link1 ?officer2_name ?link2 ?entity_name ?intermediary_name ?valid_until ?e_name
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n5 node:label "intermediary" . # 	Collection size: 14110.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 14110.0
+    ?n5 ns1:InRelationTo ?r4 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 36914.23123644083
+    ?r4 edge:label "intermediary_of" . # 	Collection size: 213634.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 3.0	Current complexity: 36914.23123644083
+    ?r4 ns1:PointsTo ?n4 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 36914.23123644083
+    ?n4 node:label "entity" . # 	Collection size: 213634.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 36914.23123644083
+    ?r3 ns1:PointsTo ?n4 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 81033.5907182682
+    ?n2 ns1:InRelationTo ?r3 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 81033.5907182682
+    ?n2 node:label "officer" . # 	Collection size: 238402.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 81033.5907182682
+    ?r3 edge:label "officer_of" . # 	Collection size: 309363.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 3.0	Current complexity: 81033.5907182682
+    ?r1 ns1:PointsTo ?n2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 177883.7755725377
+    ?n1 ns1:InRelationTo ?r1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 177883.7755725377
+    ?n1 node:label "officer" . # 	Collection size: 238402.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 177883.7755725377
+    ?r1 edge:label "officer_of" . # 	Collection size: 309363.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 3.0	Current complexity: 177883.7755725377
+    ?n2 ns1:InRelationTo ?r2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 465375.1116014034
+    ?r2 edge:label "registered_address" . # 	Collection size: 151105.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 3.0	Current complexity: 465375.1116014034
+    ?r2 ns1:PointsTo ?n3 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 465375.1116014034
+    ?n3 node:label "address" . # 	Collection size: 93454.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 465375.1116014034
+    ?n5 ns1:InRelationTo ?r5 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 1217502.798110465
+    ?r5 edge:label "intermediary_of" . # 	Collection size: 213634.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 3.0	Current complexity: 1217502.798110465
+    ?r5 ns1:PointsTo ?n6 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 1217502.798110465
+    FILTER (?n6 != ?n4)
+    ?n6 node:label "entity" . # 	Collection size: 213634.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 1217502.798110465
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 1217502.798110465
+  
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 2 -----
+      
+      ?n1 ns1:name ?officer_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 2 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 3 -----
+      
+      ?r1 ns1:link ?link1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 33.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 3 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 4 -----
+      
+      ?n2 ns1:name ?officer2_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 4 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 5 -----
+      
+      ?r3 ns1:link ?link2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 33.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 5 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 6 -----
+      
+      ?n4 ns1:name ?entity_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 6 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 7 -----
+      
+      ?n5 ns1:name ?intermediary_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 7 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 8 -----
+      
+      ?r4 ns1:valid\_until ?valid_until . # 	Collection size: 1228392.0	Predicate collection size: 1228392.0	Unique subjects: 1228392.0	Unique objects: 2.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 8 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 9 -----
+      
+      ?n6 ns1:name ?e_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 9 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+}

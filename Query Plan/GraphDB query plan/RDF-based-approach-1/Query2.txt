@@ -1,0 +1,24 @@
+SELECT ?lbl ?country
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n ns1:name "EL PORTADOR" . # 	Collection size: 9325.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 9325.0
+    FILTER (!(EXISTS {
+    PREFIX ns1: <http://example.org/>
+      
+      { # ----- Begin optimization group 2 -----
+      
+      ?n ns1:PointsTo ?n1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 674102.0
+      
+      } # ----- End optimization group 2 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 674102.0    
+    }))
+    ?n rdfs:label ?lbl . # 	Collection size: 1233702.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 9325.0
+    ?n ns1:countries ?country . # 	Collection size: 462798.0	Predicate collection size: 462798.0	Unique subjects: 462798.0	Unique objects: 311.0	Current complexity: 9325.0
+    FILTER (?country != "")
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 9325.0
+  
+}

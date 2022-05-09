@@ -1,0 +1,5 @@
+`─ Distinct [#3]
+   `─ Projection(?lbl) [#674K]
+      `─ MergeJoin(?r1) [#674K]
+         +─ Scan[PSC](?r1, ns1:PointsTo, _) [#573K]
+         `─ Scan[PSOC](?r1, rdfs:label, ?lbl) [#1.2M]

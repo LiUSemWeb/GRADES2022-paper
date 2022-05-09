@@ -1,0 +1,11 @@
+SELECT DISTINCT ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n node:label ?lbl . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 559600.0
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 559600.0
+  
+}

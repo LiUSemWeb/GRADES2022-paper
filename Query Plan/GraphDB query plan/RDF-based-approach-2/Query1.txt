@@ -1,0 +1,23 @@
+SELECT ?id ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n1 ns1:name "XU JIE" . # 	Collection size: 6.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 6.0
+    ?n1 node:label ?lbl . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 6.0
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 6.0
+  
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 2 -----
+      
+      ?n1 ns1:node\_id ?id . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 559600.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 2 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+}

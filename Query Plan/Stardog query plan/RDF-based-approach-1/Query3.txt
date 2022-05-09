@@ -1,0 +1,8 @@
+`─ Distinct [#3]
+   `─ Projection(?lbl) [#617K]
+      `─ Projection(?n, ?lbl) [#617K]
+         `─ Filter(!(Bound(?oauqexer))) [#617K]
+            `─ HashJoinOuter(?n) [#1.2M]
+               +─ Scan[POSC](?n, rdfs:label, ?lbl) [#1.2M]
+               `─ Bind("true"^^xsd:boolean AS ?oauqexer) sortedBy=?oauqexer [#674K]
+                  `─ Scan[PSOC](?n, ns1:PointsTo, ?n1) [#674K]

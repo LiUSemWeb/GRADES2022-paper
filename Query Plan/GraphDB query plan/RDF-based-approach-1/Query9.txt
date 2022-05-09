@@ -1,0 +1,74 @@
+SELECT ?lbl ?name ?link1 ?first_address ?link2 ?second_address
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?r1 rdfs:label "registered_address" . # 	Collection size: 151105.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 151105.0
+    ?n1 ns1:InRelationTo ?r1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 151105.0
+    ?n1 rdfs:label ?lbl . # 	Collection size: 1233702.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 151105.0
+    ?r1 ns1:PointsTo ?n2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 151105.0
+    ?n1 ns1:InRelationTo ?r2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 257667.0	Unique objects: 674102.0	Current complexity: 395317.14464793704
+    ?r2 rdfs:label "registered_address" . # 	Collection size: 151105.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 395317.14464793704
+    ?r2 ns1:PointsTo ?n3 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 395317.14464793704
+    FILTER (?n2 != ?n3)
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 395317.14464793704
+  
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 2 -----
+      
+      ?n1 ns1:name ?name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 2 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 3 -----
+      
+      ?r1 ns1:link ?link1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 33.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 3 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 4 -----
+      
+      ?n2 ns1:address ?first_address . # 	Collection size: 93453.0	Predicate collection size: 93453.0	Unique subjects: 93453.0	Unique objects: 93445.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 4 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 5 -----
+      
+      ?r2 ns1:link ?link2 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 33.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 5 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 6 -----
+      
+      ?n3 ns1:address ?second_address . # 	Collection size: 93453.0	Predicate collection size: 93453.0	Unique subjects: 93453.0	Unique objects: 93445.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 6 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+}
+

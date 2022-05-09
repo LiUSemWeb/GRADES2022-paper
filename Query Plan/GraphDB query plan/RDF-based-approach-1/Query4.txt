@@ -1,0 +1,12 @@
+SELECT DISTINCT ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?r1 ns1:PointsTo ?n1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 674102.0
+    ?r1 rdfs:label ?lbl . # 	Collection size: 1233702.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 674102.0
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 674102.0
+  
+}

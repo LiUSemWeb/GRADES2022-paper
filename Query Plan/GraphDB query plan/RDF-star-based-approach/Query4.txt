@@ -1,0 +1,12 @@
+SELECT DISTINCT ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n ?lbl ?n1 . # 	Collection size: 8261110.0	Predicate collection size: 8261110.0	Unique subjects: 7987353.0	Unique objects: 1575797.0	Current complexity: 8261110.0
+    FILTER (!IS_LITERAL(?n1))
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 8261110.0
+  
+}

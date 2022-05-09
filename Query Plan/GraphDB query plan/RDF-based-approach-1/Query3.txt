@@ -1,0 +1,22 @@
+SELECT DISTINCT ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n rdfs:label ?lbl . # 	Collection size: 1233702.0	Predicate collection size: 1233702.0	Unique subjects: 1233702.0	Unique objects: 7.0	Current complexity: 1233702.0
+    FILTER (!(EXISTS {
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX ns1: <http://example.org/>
+      
+      { # ----- Begin optimization group 2 -----
+      
+      ?n ns1:PointsTo ?n1 . # 	Collection size: 674102.0	Predicate collection size: 674102.0	Unique subjects: 674102.0	Unique objects: 307082.0	Current complexity: 674102.0
+      
+      } # ----- End optimization group 2 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 674102.0    
+    }))
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 1233702.0
+  
+}

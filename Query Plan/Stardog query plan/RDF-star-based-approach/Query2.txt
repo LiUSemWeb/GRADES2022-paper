@@ -1,0 +1,6 @@
+`─ Projection(?lbl, ?country) [#433]
+   `─ Filter(?country != "") [#433]
+      `─ NaryJoin(?n) [#433]
+         +─ Scan[PSOC](?n, ns1:countries, ?country) [#463K]
+         +─ Scan[PSOC](?n, rdfs:label, ?lbl) [#560K]
+         `─ Scan[POSC](?n, ns1:name, "EL PORTADOR") [#9.3K]

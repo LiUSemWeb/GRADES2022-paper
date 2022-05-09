@@ -1,0 +1,81 @@
+SELECT ?lbl1 ?link ?lbl2 ?entity_name
+{
+  {
+    
+    { # ----- Begin optimization group 1 -----
+      
+      ?_anon_c68cd2d8_b8c0_4e97_a26c_1d7e4c429a30 ns1:end\_date "11-APR-2014" . # 	Collection size: 64.0	Predicate collection size: 76749.0	Unique subjects: 73861.0	Unique objects: 6367.0	Current complexity: 64.0
+      TRIPLE ?_anon_c68cd2d8_b8c0_4e97_a26c_1d7e4c429a30 { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 4.2079232E7
+      ?n1 rdfs:label ?lbl1 . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 4.2079232E7
+      ?n2 rdfs:label ?lbl2 . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 4.2079232E7
+      ?n2 ns1:status "Active" . # 	Collection size: 55728.0	Predicate collection size: 226252.0	Unique subjects: 226252.0	Unique objects: 26.0	Current complexity: 4.2079232E7
+      ?n1 ns1:name "THE BEARER" . # 	Collection size: 70871.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 4.2079232E7
+      
+    } # ----- End optimization group 1 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 4.2079232E7
+    
+    OPTIONAL
+    {
+      
+      { # ----- Begin optimization group 2 -----
+        
+        TRIPLE ?_anon_dee4e685_1deb_4f1e_9982_3fe65815fabd { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 1.0
+        ?_anon_dee4e685_1deb_4f1e_9982_3fe65815fabd ns1:link ?link . # 	Collection size: 657530.0	Predicate collection size: 657530.0	Unique subjects: 657488.0	Unique objects: 33.0	Current complexity: 1.0000638794928576
+        
+      } # ----- End optimization group 2 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 1.0000638794928576
+      
+    }
+    OPTIONAL
+    {
+      
+      { # ----- Begin optimization group 3 -----
+        
+        ?n2 ns1:name ?entity_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+        
+      } # ----- End optimization group 3 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 1.0
+      
+    }
+  }
+  UNION
+  {
+    
+    { # ----- Begin optimization group 4 -----
+      
+      ?n1 ns1:name "THE BEARER" . # 	Collection size: 70871.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 70871.0
+      TRIPLE ?_anon_58d40646_a88b_41e2_b763_eb3cba695c1a { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 115575.85254891845
+      ?_anon_58d40646_a88b_41e2_b763_eb3cba695c1a ns1:end\_date "29-DEC-2009" . # 	Collection size: 824.0	Predicate collection size: 76749.0	Unique subjects: 73861.0	Unique objects: 6367.0	Current complexity: 115575.85254891845
+      ?n1 rdfs:label ?lbl1 . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 115575.85254891845
+      ?n2 rdfs:label ?lbl2 . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 115575.85254891845
+      ?n2 ns1:status "Defaulted" . # 	Collection size: 100090.0	Predicate collection size: 226252.0	Unique subjects: 226252.0	Unique objects: 26.0	Current complexity: 115575.85254891845
+      
+    } # ----- End optimization group 4 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 115575.85254891845
+    
+    OPTIONAL
+    {
+      
+      { # ----- Begin optimization group 5 -----
+        
+        TRIPLE ?_anon_09d7c2e8_0740_4548_ac61_6f5f514fc2a8 { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 1.0
+        ?_anon_09d7c2e8_0740_4548_ac61_6f5f514fc2a8 ns1:link ?link . # 	Collection size: 657530.0	Predicate collection size: 657530.0	Unique subjects: 657488.0	Unique objects: 33.0	Current complexity: 1.0000638794928576
+        
+      } # ----- End optimization group 5 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 1.0000638794928576
+      
+    }
+    OPTIONAL
+    {
+      
+      { # ----- Begin optimization group 6 -----
+        
+        ?n2 ns1:name ?entity_name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+        
+      } # ----- End optimization group 6 -----
+      # ESTIMATED NUMBER OF ITERATIONS: 1.0
+      
+    }
+  }
+}
+

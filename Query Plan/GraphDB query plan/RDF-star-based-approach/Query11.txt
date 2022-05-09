@@ -1,0 +1,52 @@
+SELECT ?name ?valid ?sourceID
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n1 rdfs:label "intermediary" . # 	Collection size: 14110.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 14110.0
+    ?n1 ?r1 ?n2 . # 	Collection size: 8261110.0	Predicate collection size: 8261110.0	Unique subjects: 7987353.0	Unique objects: 1575797.0	Current complexity: 14593.603425314994
+    ?n2 rdfs:label "entity" . # 	Collection size: 213634.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 14593.603425314994
+    ?n2 ?r2 ?n3 . # 	Collection size: 8261110.0	Predicate collection size: 8261110.0	Unique subjects: 7987353.0	Unique objects: 1575797.0	Current complexity: 15093.781781386642
+    ?n3 rdfs:label "address" . # 	Collection size: 93454.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 15093.781781386642
+    ?n4 ?r3 ?n3 . # 	Collection size: 8261110.0	Predicate collection size: 8261110.0	Unique subjects: 7987353.0	Unique objects: 1575797.0	Current complexity: 79129.0956969908
+    ?n4 rdfs:label "officer" . # 	Collection size: 238402.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 79129.0956969908
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 79129.0956969908
+  
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 2 -----
+      
+      TRIPLE ?_anon_6fc1cddf_8937_4fa9_8086_bfc33cd1ad71 { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 1.0
+      ?_anon_6fc1cddf_8937_4fa9_8086_bfc33cd1ad71 ns1:valid\_until ?valid . # 	Collection size: 1211778.0	Predicate collection size: 1211778.0	Unique subjects: 1211778.0	Unique objects: 2.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 2 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 3 -----
+      
+      TRIPLE ?_anon_300505d3_30a4_4e22_b780_0f4f42bb577c { ?n1 ?r1 ?n2 }  . # 	Collection size: 657488.0	Predicate collection size: 657488.0	Unique subjects: 403171.0	Unique objects: 427919.0	Current complexity: 1.0
+      ?_anon_300505d3_30a4_4e22_b780_0f4f42bb577c ns1:sourceID ?sourceID . # 	Collection size: 1217088.0	Predicate collection size: 1217088.0	Unique subjects: 1217088.0	Unique objects: 1.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 3 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 4 -----
+      
+      ?n1 ns1:name ?name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 4 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+}

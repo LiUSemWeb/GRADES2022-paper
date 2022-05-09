@@ -1,0 +1,8 @@
+`─ Projection(?id, ?lbl) [#84]
+   `─ MergeJoinOuter(?n1) [#84]
+      +─ MergeJoin(?n1) [#84]
+      │  +─ Scan[POSC](?n1, ns1:name, "XU JIE") [#18]
+      │  `─ Scan[PSOC](?n1, node:label, ?lbl) [#560K]
+      `─ MergeJoin(?n1) [#84]
+         +─ Scan[POSC](?n1, ns1:name, "XU JIE") [#18]
+         `─ Scan[PSOC](?n1, ns1:node_id, ?id) [#560K]

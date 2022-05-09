@@ -1,0 +1,25 @@
+SELECT ?name ?lbl
+{
+  
+  { # ----- Begin optimization group 1 -----
+    
+    ?n1 ns1:name "ORION HOUSE SERVICES (HK) LIMITED" . # 	Collection size: 2.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 2.0
+    ?n1 ns1:intermediary\_of ?n2 . # 	Collection size: 213634.0	Predicate collection size: 213634.0	Unique subjects: 14074.0	Unique objects: 213634.0	Current complexity: 30.358675571976693
+    ?n2 rdfs:label ?lbl . # 	Collection size: 559600.0	Predicate collection size: 559600.0	Unique subjects: 559600.0	Unique objects: 4.0	Current complexity: 30.358675571976693
+    
+  } # ----- End optimization group 1 -----
+  # ESTIMATED NUMBER OF ITERATIONS: 30.358675571976693
+  
+  OPTIONAL
+  {
+    
+    { # ----- Begin optimization group 2 -----
+      
+      ?n2 ns1:name ?name . # 	Collection size: 466139.0	Predicate collection size: 466139.0	Unique subjects: 466139.0	Unique objects: 335677.0	Current complexity: 1.0
+      
+    } # ----- End optimization group 2 -----
+    # ESTIMATED NUMBER OF ITERATIONS: 1.0
+    
+  }
+}
+

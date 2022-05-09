@@ -1,0 +1,4 @@
+`─ Distinct [#11]
+   `─ Projection(?lbl) [#1.4M]
+      `─ Filter(!(isLiteral(?n1))) [#1.4M]
+         `─ Scan[POC](_, ?lbl, ?n1) [#2.9M]
