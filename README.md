@@ -1,17 +1,29 @@
 # Converting-Property-Graphs-to-RDF-and-RDF-star
-In this repository, you can find the code for converting property graph to RDF and RDF-star. 
+In the paper 'Converting Property Graphs to RDF: A Preliminary Study of the Practical Impact of Different Mappings', we present and compare the results of experiment on query performance over RDF/RDF-star graphs. RDF/RDF-star graphs are produced by applying different direct LPG mapping approaches. In this repository, you can find the code for converting property graph to RDF and RDF-star, queries, query plans. 
 
 ## Data set
-The property graph available in the CSV format can be used as the input of the source code. You can find the data from this [link](https://offshoreleaks.icij.org/pages/database). After downloading the data from the link above, copy the CSV files in the folder of **input**. 
+For the experiment, a real world LPG data set about Panama-Papers is used. Data is available in five separate CSV files, namely: panama_papers.nodes.address.csv, panama_papers.nodes.entity.csv,
+panama_papers.nodes.intermediary.csv, panama_papers.nodes.officer.csv, and panama_papers.edges.csv. Panama-Papers data can be downloaded through this [link](https://offshoreleaks.icij.org/pages/database). After downloading the CSV files from the link above, copy them in the **input** directory.
 
-## Run the experiment
-In order to be able to run the experiment, you need to install all the packages which is available in **req.tex**. So, all the packages will be installed via the below command.
+
+## Mapping tools
+The mapping scripts tools is in Python. For using the tool, you may need to create a Python virtual environment first. For creating a virtual environment, you need to run the below command in git bash:
+
+```python -m venv .venv```
+
+After creating the virtual environment, you need to activate it. For activating, you need to run the below command:
+
+```source ./.venv/Scripts/Activate```
+
+After the virtual environment is activated, you need to first **install all the packages**, which is available in **req.txt**. For installing the packages, you need to run the command below:
 
 ```pip install -r req.txt```
 
-After package installation, you can **open the jupyter lab** to run the codes. All you need is to write the command below in your git bash.
+After installing the packages, you can **open jupyter lab** to run the mapping scrips. All you need is to run the below command in your git bash.
 
 ```jupyter lab```
+
+Since the inputs of the mapping tool are CSVs, all you need is to copy the CSV files into the input directory as described above.
 
 
 ## Queries
