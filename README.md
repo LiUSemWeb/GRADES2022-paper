@@ -28,3 +28,19 @@ Since the inputs of the mapping tool are CSVs, all you need is to copy the CSV f
 
 ## Queries
 There are three versions of the queries. You can find all the queries in the folder of **Queries**.
+
+## Running the queries for experiment
+As the goal of the experiment is to compare the three mappings in terms of execution time, you can find the materials for running the queries in 
+the **Executing queries for experiment** directory. For running the experiment, you need to set up the port, user, and password for some of the systems. In below, 
+you can find the details of the set up for each system.
+
+## Neo4j
+In the paper, we used the community edition 4.3.7 of Neo4j. We used the port **localhost:7687**. Moreover, we used the defualt user and password of the Neo4j, which is **neo4j** and **1234**. If you are using different port or user and password as an authentication, you can replace it in the code easily.
+
+## GraphDB
+We used GraphDB(v.9.10.0) for the experiment. In order to do the experiment on the GraphDB, you need to create three different databases in the system. You can create the databases with names of: RDF_based_approach_1 for loading the RDF-based-approach-1 data, RDF_based_approach_2 for loading the RDF-based-approach-2 data, and RDF_star_based_approach for loading the RDF-star-based-approach data. For running the queries, we used the port number **localhost:7200**. In contrast to Neo4j, there is no need for authentication. 
+
+## Stardog
+We used Stardog(v.7.9.0) for the experiment. In the Stardog system, you also need to create three different databases like GraphDB. You also need to create the databases with the same names that you used in GraphDB. The port number, user name, and the password is **localhost:5820**, **admin**, **admin**, respectively. 
+
+After setting up each system and loading the data into each databases, you can run the experiment to mesure the average of query execution time. The output of each code file is a CSV containing the execution time, average, and stdv.    
