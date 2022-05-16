@@ -117,9 +117,10 @@ load /opt/graphdb/home/data/data-file.ttl
 ```
 
 ## Stardog
-We used Stardog(v.7.9.0) for the experiment. For creating Stardog inside the docker, you need to follow some steps which are explained below.
+We used Stardog(v.7.9.0) for the experiment. For creating Stardog inside the docker, you need to follow the steps which are explained below.
 
-Firstly, you need to request a licence key from the Stardog webpage. You can can do it trough the link https://www.stardog.com/get-started/. After getting the licence key, you need to create a directory and name it to **stardog_home**. Then, copy the licence into the stardog_home directory. Now, by running the below command you can create an image of Stardog inside the docker.
+1. Firstly, you need to request a license key from the Stardog webpage. You can can do it trough the link https://www.stardog.com/download-free/.
+2. After getting the licence key, you need to create a directory and name it to **stardog_home**. Then, copy the license key into the **stardog_home** directory. Now, by running the below command you can create an image of Stardog inside the docker.
 
 ```
 docker run --name panama-paper-evaluation -it -v ../stardog_home/:/var/opt/stardog -p 5820:5820 stardog/stardog:7.9.0-java11-preview 
