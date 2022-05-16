@@ -23,9 +23,10 @@ After installing the packages, you can **open jupyter lab** to run the mapping s
 
 ```jupyter lab```
 
-Important: Instead of generating the RDF and RDF-star versions using the tools, you can download them directly from the [Zenodo](https://zenodo.org/record/6524085#.YoISaKhBybg). 
+**Instead of generating the RDF and RDF-star versions using the tools, you can download them directly from the [Zenodo](https://zenodo.org/record/6524085#.YoISaKhBybg).** 
+
 ## Queries
-There are four versions of the queries. You can find all the queries in the folder of **Queries**.
+There are four versions of the queries. A Cypher version for the LPG, two SPARQL versions for the two RDF representations, and a SPARQL-star version for the RDF-star-based approach. You can find all the queries in the folder of **Queries**. 
 
 ## Running the queries for experiment
 As the goal of the experiment is to compare the three mappings in terms of execution time, you can find the materials for running the queries in 
