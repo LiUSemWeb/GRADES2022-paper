@@ -117,6 +117,15 @@ load /opt/graphdb/home/data/data-file.ttl
 ```
 
 ## Stardog
-We used Stardog(v.7.9.0) for the experiment. In the Stardog system, you also need to create three different databases like GraphDB. You also need to create the databases with the same names that you used in GraphDB. The port number, user name, and the password is **localhost:5820**, **admin**, **admin**, respectively. 
+We used Stardog(v.7.9.0) for the experiment. For creating Stardog inside the docker, you need to follow some steps which are explained below.
+
+Firstly, you need to request a licence key from the Stardog webpage. You can can do it trough the link https://www.stardog.com/get-started/. After getting the licence key, you need to create a directory and name it to **stardog_home**. Then, copy the licence into the stardog_home directory. Now, by running the below command you can create an image of Stardog inside the docker.
+
+```
+docker run --name panama-paper-evaluation -it -v ../stardog_home/:/var/opt/stardog -p 5820:5820 stardog/stardog:7.9.0-java11-preview 
+```
+
+In the Stardog system, you also need to create three different databases like GraphDB. You also need to create the databases with the same names that you used in GraphDB. The port number, user name, and the password is **localhost:5820**, **admin**, **admin**, respectively. You can do it by running the python code, which is inside the **Load to Stardog** directory. 
+
 
 After setting up each system and loading the data into each databases, you can run the experiment to mesure the average of query execution time. The output of each code file is a CSV containing the execution time, average, and stdv.    
