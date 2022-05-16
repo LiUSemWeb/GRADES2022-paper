@@ -35,7 +35,53 @@ the **Executing queries for experiment** directory. For running the experiment, 
 you can find the details of the set up for each system.
 
 ## Neo4j
-In the paper, we used the community edition 4.3.7 of Neo4j. We used the port **localhost:7687**. Moreover, we used the defualt user and password of the Neo4j, which is **neo4j** and **1234**. If you are using different port or user and password as an authentication, you can replace it in the code easily.
+In the paper, we used the community edition 4.3.7 of Neo4j. For this purpose, we created an image of Neo4j inside the docker. You can start a Neo4j container by following the instructions below. 
+
+Important: Before running the command below, copy all of the panama paper CSVs inside the import directory then run the command. For Neo4j configurations, we used the port **localhost:7687**. Moreover, we used the defualt user and password of the Neo4j, which is **neo4j** and **1234**.
+
+```
+docker run \
+    --name panama-paper-evaluation \
+    -p7474:7474 -p7687:7687 \
+    -d \
+    -v $HOME/neo4j/data:/data \
+    -v $HOME/neo4j/logs:/logs \
+    -v $HOME/neo4j/import:/var/lib/neo4j/import \
+    -v $HOME/neo4j/plugins:/plugins \
+    -e NEO4J_AUTH=neo4j/1234 \
+    neo4j:4.3.7-community
+```
+The above command allows you to access neo4j through your browser at **http://localhost:7474**. Now, you need to import the data into a new database. You can do it with the command below:
+
+```
+docker exec panama-paper-evaluation neo4j-admin import --nodes=officer=/var/lib/neo4j/import/panama_papers.nodes.officer.csv --nodes=entity=/var/lib/neo4j/import/panama_papers.nodes.entity.csv --nodes=intermediary=/var/lib/neo4j/import/panama_papers.nodes.intermediary.csv --nodes=address=/var/lib/neo4j/import/panama_papers.nodes.address.csv --relationships=/var/lib/neo4j/import/panama_papers.edges.csv --delimiter="," --database=panama-paper
+```
+
+Since the community version does not support multiple databases at the same time, you need to change the Neo4j configuration to use the created database. It can be achieved by following the steps in below.
+
+Firstly, install the vim:
+
+```
+apt-get update
+apt-get -y install vim
+```
+
+
+After isntallation, you need to edit the file **NEO4J_HOME\conf\neo4j.conf**. For editting, you need to un-comment the line **dbms.default_database=neo4j**. Change the neo4j to the database that you want to use, which is **panama-paper** here.
+
+After changing the configuration, you need to restart the container. You can do it by:
+
+```
+docker stop panama-paper-evaluation
+docker start panama-paper-evaluation
+```
+
+Now, You can run the cypher shell in container and run queries with the command below:
+
+```
+docker exec -it panama-paper-evaluation cypher-shell -u neo4j -p 1234
+```
+
 
 ## GraphDB
 To set up each system, you can create an image of each system in docker. In bellow, you can find an explanation of how to create 
