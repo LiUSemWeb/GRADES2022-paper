@@ -7,7 +7,7 @@ panama_papers.nodes.intermediary.csv, panama_papers.nodes.officer.csv, and panam
 
 
 ## Mapping tools
-The mapping scripts tools is in Python. For using the tool, you may need to create a Python virtual environment first. For creating a virtual environment, you need to run the below command in git bash:
+The purpose of this tool is to transform an LPG into RDF and RDF-star. The mapping scripts tools is in Python. For using the tool, you may need to create a Python virtual environment first. For creating a virtual environment, you need to run the below command in git bash:
 
 ```python -m venv .venv```
 
@@ -23,11 +23,9 @@ After installing the packages, you can **open jupyter lab** to run the mapping s
 
 ```jupyter lab```
 
-Since the inputs of the mapping tool are CSVs, all you need is to copy the CSV files into the input directory as described above.
-
-
+Important: Instead of generating the RDF and RDF-star versions using the tools, you can download them directly from the [Zenodo](https://zenodo.org/record/6524085#.YoISaKhBybg). 
 ## Queries
-There are three versions of the queries. You can find all the queries in the folder of **Queries**.
+There are four versions of the queries. You can find all the queries in the folder of **Queries**.
 
 ## Running the queries for experiment
 As the goal of the experiment is to compare the three mappings in terms of execution time, you can find the materials for running the queries in 
