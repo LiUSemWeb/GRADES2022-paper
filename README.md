@@ -38,7 +38,37 @@ you can find the details of the set up for each system.
 In the paper, we used the community edition 4.3.7 of Neo4j. We used the port **localhost:7687**. Moreover, we used the defualt user and password of the Neo4j, which is **neo4j** and **1234**. If you are using different port or user and password as an authentication, you can replace it in the code easily.
 
 ## GraphDB
-We used GraphDB(v.9.10.0) for the experiment. In order to do the experiment on the GraphDB, you need to create three different databases in the system. You can create the databases with names of: RDF_based_approach_1 for loading the RDF-based-approach-1 data, RDF_based_approach_2 for loading the RDF-based-approach-2 data, and RDF_star_based_approach for loading the RDF-star-based-approach data. For running the queries, we used the port number **localhost:7200**. In contrast to Neo4j, there is no need for authentication. 
+To set up each system, you can create an image of each system in docker. In bellow, you can find an explanation of how to create 
+an instance of each system in the docker and how to load the data into each. We used the free version of GraphDB(v.9.10.0). You can pull the version that we have used in the experiment with the command below.
+
+```docker pull shahrzadkhb/dockerhub:graphdbfree-9.10.0 ``` 
+
+After pulling the image of GraphDB, you need to create a directory and copy all of the data files and run the command below.
+
+```docker run --name panama-paper -d -p 7200:7200 -v path/to/data:/opt/graphdb/home/data shahrzadkhb/dockerhub:graphdbfree-9.10.0```
+
+with the steps above, you could successfully create a free image of GraphDB inside the docker. Now, you need to create a database and 
+import the data into it, which can be achieved by following the steps below.
+
+First, You need to enter the container bash console: 
+
+```docker exec -it panama-paper bash```
+    
+Then, you need to create a repository:
+
+```   
+cd opt/graphdb/dist/bin/.console
+connect http://localhost:7200
+create free 
+```
+Important: In order to do the experiment on GraphDB, you need to create three different databases in the system. You can create the databases with the names of: RDF_based_approach_1 for loading the RDF-based-approach-1 data, RDF_based_approach_2 for loading the RDF-based-approach-2 data, and RDF_star_based_approach for loading the RDF-star-based-approach data. Dont forget to give an id and a name when creating a repository.
+ 
+Lastly, you need to open a repository and load the data into it.
+  
+```
+open <repository id>
+load /opt/graphdb/home/data/data-file.ttl   
+```
 
 ## Stardog
 We used Stardog(v.7.9.0) for the experiment. In the Stardog system, you also need to create three different databases like GraphDB. You also need to create the databases with the same names that you used in GraphDB. The port number, user name, and the password is **localhost:5820**, **admin**, **admin**, respectively. 
