@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "GRADES2022-paper"
+version: 1.0.0
+url: "https://github.com/LiUSemWeb/GRADES2022-paper"
+preferred-citation:
+  type: conference-paper
+  authors:
+  - family-names: "Khayatbashi"
+    given-names: "Shahrzad"
+  - family-names: "Sebastian"
+    given-names: "Ferrada"
+    orcid: "https://orcid.org/0000-0002-9834-8376"
+  - family-names: "Hartig"
+    given-names: "Olaf"
+    orcid: "https://orcid.org/0000-0002-1741-2090"
+  title: "Converting Property Graphs to RDF: A Preliminary Study of the Practical Impact of Different Mappings"
+  collection-title: "Proceedings of the 5th ACM SIGMOD Joint International Workshop on Graph Data Management Experiences & Systems (GRADES) and Network Data Analytics (NDA)"
+  year: 2022
+  doi: "10.1145/3534540.3534695"
